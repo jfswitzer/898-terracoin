@@ -1,0 +1,30 @@
+#!/usr/bin/python
+from time import sleep
+from random import randint
+import json
+TRANSACTIONS = {}
+TID = 0
+TRANSACTIONS['transactions'] = []
+def publish_transaction():
+    global TID
+    global TRANSACTIONS
+    #mimics a real system by publishing a fake transaction every timestep
+    #transactions don't persist when you run this multiple times
+    source = randint(0, 1000)
+    dest = randint(0, 1000)
+    amt = randint(1, 10)
+    TID += 1
+    TRANSACTIONS['transactions'].append({
+        'transaction_id': TID,
+        'destination': dest,
+        'source': source,
+        'amount': amt
+    })
+    with open('transactions.json', 'w') as f:
+        json.dump(TRANSACTIONS, f)
+def main():
+    publish_transaction()
+    
+if __name__ == '__main__':
+    while (not sleep(20)):
+        main()

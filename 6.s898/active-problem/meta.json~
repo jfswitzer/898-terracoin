@@ -1,0 +1,6 @@
+{
+    "threshold": 0.9,
+    "training_file": "standin",
+    "test_file": "standin",
+
+}

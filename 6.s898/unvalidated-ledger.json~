@@ -1,0 +1,1 @@
+{"solved": [{"timestamp": 1575323647.758313, "output_hash": "0x15ae5ea508b474c8a038588769a5594a", "pid": 806, "problem_location": "unvalidated/my_result8442.h5", "transactions": "{u'transactions': [{u'source': 875, u'amount': 9, u'destination': 100, u'transaction_id': 1}, {u'source': 143, u'amount': 9, u'destination': 542, u'transaction_id': 2}]}"}]}
