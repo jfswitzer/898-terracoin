@@ -26,14 +26,14 @@ def check_validate(vid):
 
     threshold = tu.get_threshold()
     hashy, transactions = tu.generate_input_hash()
-    print("HASHY looks like: "+hashy)
-
+    s = time.time()
     #check that the parameterization is what it should be
     if not check_params(saved_model, hashy):
         return False
     #check that the performance is what it should be
     if not check_performance(saved_model, threshold,x_test,y_test):
         return False
+    e = time.time()
     #if both check out, the model is good
     metadata = {
         'pid': model_id,
@@ -43,8 +43,9 @@ def check_validate(vid):
         'hashy': hashy,
         'transactions': transactions,
     }
+    print("REPORTING GOOD AT: "+problem_location)
     tu.report_good_model(metadata)
-    return True
+    return e - s
 def check_params(model, hashy):
     #mb - decouple from actual model creation/complexity
     generated_model = tu.generate_model(hashy,64)
